@@ -38,9 +38,9 @@ namespace AnimeStream
             RootObject animeFirst15 = JsonConvert.DeserializeObject<RootObject>(response);
             response = WebRequest(urlLast);
             RootObject animeLast = JsonConvert.DeserializeObject<RootObject>(response);
-            if (animeLast.data != null)
-                return animeFirst15.data.ToArray().Union(animeLast.data.ToArray()).ToList();
-            return animeFirst15.data.ToArray().ToList();
+            if (animeLast.data != null) listAnime = animeFirst15.data.ToArray().Union(animeLast.data.ToArray()).ToList();
+            else listAnime = animeFirst15.data.ToArray().ToList();
+            return listAnime;
         }
         public RootObject GetAnimeData(int idAnime) {
             string url = $"https://www.vvvvid.it/vvvvid/ondemand/{idAnime}/seasons/?conn_id={_connectionId}";

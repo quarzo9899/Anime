@@ -19,7 +19,7 @@ namespace AnimeStream {
         //animeData[0].episodes[0].thumbnail	"https://static.vvvvid.it/img/thumbs/Dynit/TokyoGhoul/TokyoGhoul_S03Ep01-t.jpg"	
         //animeData[0].title = "I cacciatori"	
         protected void Page_Load(object sender, EventArgs e) {
-            if (AnimeStream._default.vvvID == null || AnimeStream._default.listAnime == null || Request.QueryString["id"] == null)
+            if (AnimeStream._default.vvvID == null || AnimeStream._default.vvvID.listAnime == null || Request.QueryString["id"] == null)
                 Server.Transfer($"default.aspx");
             var vvvID = AnimeStream._default.vvvID;
             AnimeStream._default.vvvID = null;
