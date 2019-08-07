@@ -19,6 +19,8 @@
             }
     </script>
 
+    
+
     <meta id="vp" name="viewport" content="width=device-width, initial-scale=1"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
@@ -26,15 +28,15 @@
 <body>
     <form id="form1" runat="server">
         <div class="header navbar">
-            <img class="img-fluid" alt="" src="img/qr.png" style="max-height: 120px;" />
-            <img class="img-fluid" alt="" src="img/scritta.png" style="max-height: 100px;" />
-            <h1 style="color:white; font-family:'Eras ITC'; font-size:80px;">ANIME</h1>
+            <img class="img-fluid" alt="" src="img/qr.png" style="max-height: 130px;" />
+            <img class="img-fluid img-mid" alt="" src="img/scritta.png" style="max-height: 100px;" />
+            <h1 class="title-left">ANIME</h1>
         </div>
         <br />
         <div class="container text-center">
             <div class="jumbotron search">
                 <div class="row text-center">
-                    <div class="col-md-10"><h1 style="color:white; font-family:Arial;">Insersici l'iniziale dell'anime che vuoi guardare</h1></div>
+                    <div class="col-md-10"><h1 class="h1-src" style="">Insersici l'iniziale dell'anime che vuoi guardare</h1></div>
                     <div class="col-md-2"><asp:TextBox ID="AnimeIniziale" runat="server" MaxLength="1" OnTextChanged="AnimeIniziale_TextChanged" AutoPostBack="true" CssClass="form-control box"/></div>
                 </div>
             </div>

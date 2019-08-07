@@ -15,8 +15,39 @@
     border-radius:30px;
 }
 
+.title-left {
+    font-size: 80px;
+    color: white;
+    font-family: 'Eras ITC';
+}
+
 .search {
     margin-top:30px;
     background-color: #5D6D7E;
     border-radius:30px;
+}
+
+.h1-src {
+    color: white;
+    font-family: Arial;
+}
+
+@media (max-width: 944px){
+    .img-mid{
+        display:none;
+    }
+}
+
+@media (max-width: 404px) {
+    .title-left {
+        font-size:60px;
+    }
+
+    .h1-src{
+        font-size:25px;
+    }
+
+    .box{
+        height:30px;
+    }
 }
