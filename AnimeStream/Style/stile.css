@@ -1,0 +1,22 @@
+﻿body{
+    background-image:url("../img/patt.jpg");
+    background-repeat: repeat;
+}
+
+.header{
+    background-color:black;
+    padding:10px;
+}
+.box{
+    height:50px;
+    text-align:center;
+    font-size:32px;
+    font-weight:bold;
+    border-radius:30px;
+}
+
+.search {
+    margin-top:30px;
+    background-color: #5D6D7E;
+    border-radius:30px;
+}

@@ -1,0 +1,87 @@
+﻿//------------------------------------------------------------------------------
+// <generato automaticamente>
+//     Codice generato da uno strumento.
+//
+//     Le modifiche a questo file possono causare un comportamento non corretto e verranno perse se
+//     il codice viene rigenerato. 
+// </generato automaticamente>
+//------------------------------------------------------------------------------
+
+namespace AnimeStream {
+    
+    
+    public partial class _default {
+        
+        /// <summary>
+        /// Controllo vp.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlMeta vp;
+        
+        /// <summary>
+        /// Controllo form1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        
+        /// <summary>
+        /// Controllo AnimeIniziale.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox AnimeIniziale;
+        
+        /// <summary>
+        /// Controllo ltl_gallery.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltl_gallery;
+        
+        /// <summary>
+        /// Controllo AnimeLista.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList AnimeLista;
+        
+        /// <summary>
+        /// Controllo AnimeTipo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList AnimeTipo;
+        
+        /// <summary>
+        /// Controllo AnimeEpisodio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList AnimeEpisodio;
+        
+        /// <summary>
+        /// Controllo BtnStream.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnStream;
+    }
+}
