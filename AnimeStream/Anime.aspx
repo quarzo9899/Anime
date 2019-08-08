@@ -1,39 +1,53 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Anime.aspx.cs" Inherits="AnimeStream.Anime1" EnableEventValidation="False" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Anime.aspx.cs" Inherits="AnimeStream.Anime1" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="Content/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="Content/bootstrap-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="Content/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="Content/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="Style/stile2.css" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta id="vp" name="viewport" content="width=device-width, initial-scale=1" />
     <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox><br />
-            Episodi
-            <asp:DropDownList ID="ddl_tipo" runat="server" Height="16px" Width="119px" OnTextChanged="ddl_tipo_TextChanged" AutoPostBack="true">
-            </asp:DropDownList>
+
+        <div class="container-fluid">
+            <asp:Label ID="lbl_titolo" runat="server" Text="" CssClass="h1"></asp:Label>
+            <hr style="color:white"/><br />
+            <div class="row">
+                <div class="col-4 text-left"><h3>Episodi:</h3></div>
+                <div class="col-8 text-left"><asp:DropDownList ID="ddl_tipo" runat="server" Height="16px" Width="119px" OnTextChanged="ddl_tipo_TextChanged" AutoPostBack="true" CssClass="form-control drop"></asp:DropDownList></div>
+            </div>
         </div>
-        <asp:GridView ID="ListGrid" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal" Width="335px" OnRowCommand="ListGrid_RowCommand">
-            <Columns>
-                <asp:TemplateField>
-                    <ItemTemplate>
-                        <asp:ImageButton ID="ImageButton1" runat="server" CommandArgument='<%# Eval("id") %>' ImageUrl='<%# Eval("thumb") %>' Width="50px" CommandName="play" />
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:BoundField DataField="title" HeaderText="Titolo" />
-            </Columns>
-            <FooterStyle BackColor="White" ForeColor="#333333" />
-            <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
-            <RowStyle BackColor="White" ForeColor="#333333" />
-            <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#F7F7F7" />
-            <SortedAscendingHeaderStyle BackColor="#487575" />
-            <SortedDescendingCellStyle BackColor="#E5E5E5" />
-            <SortedDescendingHeaderStyle BackColor="#275353" />
-        </asp:GridView>
+        <br />
+        <div class="list container-fluid text-center">
+            <asp:GridView ID="ListGrid" runat="server" AutoGenerateColumns="False" OnRowCommand="ListGrid_RowCommand" CssClass="mytab table table-striped table-dark">
+                <Columns>
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:ImageButton ID="ImageButton1" runat="server" CommandArgument='<%# Eval("id") %>' ImageUrl='<%# Eval("thumb") %>' CommandName="play" Height="90px" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:BoundField DataField="title" HeaderText="Titolo" >
+                    <FooterStyle HorizontalAlign="Left" />
+                    <HeaderStyle HorizontalAlign="Left" />
+                    <ItemStyle HorizontalAlign="Left" />
+                    </asp:BoundField>
+                </Columns>
+            </asp:GridView>
+        </div>
+        
     </form>
+
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/jquery-3.0.0.js"></script>
+
 </body>
 </html>

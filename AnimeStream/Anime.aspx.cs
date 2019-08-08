@@ -33,16 +33,15 @@ namespace AnimeStream {
                 int animeID = int.Parse(Request.QueryString["id"]);
                 vvvID.Anime = vvvID.listAnime[animeID];
                 animeData = GetAnimeData(vvvID);
-                TextBox1.Text = vvvID.Anime.title;
+                lbl_titolo.Text = vvvID.Anime.title;
             
                 foreach (Anime a in animeData)
                 {
                     ddl_tipo.Items.Add(a.name);
                 }
-            }
-            
 
-            AggiornaGridLista(0);
+                AggiornaGridLista(0);
+            }
         }
 
         private List<Anime> GetAnimeData(VVVID vvvID) {
@@ -52,7 +51,7 @@ namespace AnimeStream {
 
         private void Play(Anime anime, int nEpisodio) {
             var link = vvvID.GetLinks(anime, nEpisodio);
-            Response.Redirect($"player.html?url={link}");
+            Response.Write($"<script>window.open('player.html?url={link}')</script>");
         }
 
         private void AggiornaGridLista(int index)
@@ -79,9 +78,9 @@ namespace AnimeStream {
 
         protected void ListGrid_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if(e.CommandName == "play")
+            if (e.CommandName == "play")
             {
-               Play(animeData[ddl_tipo.SelectedIndex], 0);
+                Play(animeData[ddl_tipo.SelectedIndex], int.Parse(Convert.ToString(e.CommandArgument)));
             }
         }
     }

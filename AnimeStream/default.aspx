@@ -15,7 +15,7 @@
     <script type="text/javascript">
             function Image_click(img) {
                 var id = img.id;
-                var style = "top=50%, left=50%, width=520, height=600, status=no, menubar=no, resizable=no, toolbar=no, scrollbars=yes";
+                var style = "top=200, left=200, width=520, height=600, status=no, menubar=no, resizable=no, toolbar=no, scrollbars=yes";
                 window.open("Anime.aspx?id=" + id, "", style);
             }
     </script>

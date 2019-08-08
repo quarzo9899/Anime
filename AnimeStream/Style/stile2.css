@@ -1,0 +1,21 @@
+﻿body {
+    background-color:black;
+    color:white;
+}
+
+.list{
+    width:100%;
+}
+
+.mytab{
+    font-size:20px;
+}
+
+.drop{
+    background-color:black;
+    border-color:white;
+    color:white;
+    min-height:40px;
+    min-width:300px;
+    font-size:22px;
+}
