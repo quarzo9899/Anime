@@ -80,6 +80,11 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="default.aspx" />
+    <Content Include="img\back.jpg" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\patt.jpg" />
+    <Content Include="img\qr.png" />
+    <Content Include="img\scritta.png" />
     <Content Include="player.html" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -117,6 +122,7 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Scripts\hls.js" />
+    <Content Include="Style\stile.css" />
     <Content Include="Style\stile2.css" />
     <Content Include="Web.config" />
   </ItemGroup>
