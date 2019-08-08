@@ -1,20 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Web.UI.WebControls;
 
 namespace AnimeStream
 {
     public partial class _default : System.Web.UI.Page {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (!IsPostBack)
-            {
+        protected void Page_Load(object sender, EventArgs e) {
+            if (!IsPostBack) {
                 if (Request.QueryString["connectionID"] == null || Request.QueryString["connectionID"] == "" || Request.QueryString["cookieValue"] == null || Request.QueryString["cookieValue"] == "") {
                     List<string> info = VVVID.GetConnectionInfo();
                     Response.Redirect($"default.aspx?connectionID={info[0]}&cookieValue={info[1]}");
                 }
-                
             }
         }
 
@@ -29,7 +25,7 @@ namespace AnimeStream
         private void AggiornaGallery(List<Anime> listaAnime) {
             string innerhtml = "<div class='row'>";
             for (int i = 0; i < listaAnime.Count; i++)
-                innerhtml += $"<div class='col-6 col-sm-4 col-md-3 col-lg-2'><img id='{listaAnime[i].show_id}' alt = '' src='{listaAnime[i].thumbnail}' class='img-fluid' style='width:300px;margin:10px;' onclick='Image_click(this)'/></div>";
+                innerhtml += $"<div class='col-6 col-sm-4 col-md-3 col-lg-2'><img id='{listaAnime[i].show_id}-{listaAnime[i].title}' alt = '' src='{listaAnime[i].thumbnail}' class='img-fluid' style='width:300px;margin:10px;' onclick='Image_click(this)'/></div>";
             innerhtml += "</div>";
             ltl_gallery.Text = innerhtml;
         }

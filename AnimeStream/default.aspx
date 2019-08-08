@@ -20,7 +20,7 @@
             });
             var id = img.id;
             var style = "top=200, left=200, width=520, height=600, status=no, menubar=no, resizable=no, toolbar=no, scrollbars=yes";
-            var url = "Anime.aspx?id=" + id + "&connectionID=" + vars["connectionID"] + "&cookieValue=" + vars["cookieValue"];
+            var url = "Anime.aspx?animeInfo=" + id + "&connectionID=" + vars["connectionID"] + "&cookieValue=" + vars["cookieValue"];
             window.open(url, "", style);
         }
     </script>
