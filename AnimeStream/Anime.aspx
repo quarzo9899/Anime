@@ -13,6 +13,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta id="vp" name="viewport" content="width=device-width, initial-scale=1" />
     <title></title>
+
+    <style type="text/css">
+    .Hide
+    {
+        display: none;
+    }
+</style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -37,6 +44,9 @@
                     <asp:BoundField DataField="title" HeaderText="Titolo" >
                     <FooterStyle HorizontalAlign="Left" />
                     <HeaderStyle HorizontalAlign="Left" />
+                    <ItemStyle HorizontalAlign="Left" />
+                    </asp:BoundField>
+                   <asp:BoundField DataField="epInfo" HeaderText="epInfo"  ItemStyle-CssClass="Hide" HeaderStyle-CssClass="Hide" >
                     <ItemStyle HorizontalAlign="Left" />
                     </asp:BoundField>
                 </Columns>

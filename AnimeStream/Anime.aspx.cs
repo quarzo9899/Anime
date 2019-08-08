@@ -1,69 +1,55 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace AnimeStream {
+namespace AnimeStream
+{
     public partial class Anime1 : System.Web.UI.Page {
-        //animeData è una lista di Anime, ad es.un anime puà avere una versione ITA e una SUB-ITA quindi animeData conteerà 2 Anime , 
-        //     dentro ogni anime ci sono tutte le informazioni necessarie per identificarle.
-
-
-        //animeData[0].name = "Episodi In Italiano"
-
-        //animeData[0].episodes è una lista di episodi quindi si possono ottenere i numeri degli episodi(animeData[0].episodes.Count 
-        //      inoltre ogni episodio ha un immagine che volendo si può mettere a schermo e un titolo)
-
-        //animeData[0].episodes[0].thumbnail	"https://static.vvvvid.it/img/thumbs/Dynit/TokyoGhoul/TokyoGhoul_S03Ep01-t.jpg"	
-        //animeData[0].title = "I cacciatori"
-        private static List<Anime> animeData;
-        private static VVVID vvvID;
 
         protected void Page_Load(object sender, EventArgs e) {
             if (!IsPostBack)
             {
-                if (AnimeStream._default.vvvID == null || AnimeStream._default.vvvID.listAnime == null || Request.QueryString["id"] == null)
-                Response.Redirect("default.aspx");
-                vvvID = AnimeStream._default.vvvID;
-                //AnimeStream._default.vvvID = null;
+
+                if (Request.QueryString["connectionID"] == null || Request.QueryString["connectionID"] == "" || Request.QueryString["cookieValue"] == null || Request.QueryString["cookieValue"] == "" || Request.QueryString["id"] == null || Request.QueryString["id"] == "")
+                {
+                    List<string> info = VVVID.GetConnectionInfo();
+                    Response.Redirect($"default.aspx?connectionID={info[0]}&cookieValue={info[1]}");
+                }
 
                 int animeID = int.Parse(Request.QueryString["id"]);
-                vvvID.Anime = vvvID.listAnime[animeID];
-                animeData = GetAnimeData(vvvID);
-                lbl_titolo.Text = vvvID.Anime.title;
-            
+                string connectionID = Request.Params["connectionID"];
+                string cookieValue = Request.Params["cookieValue"];
+                var animeData = VVVID.GetAnimeData(animeID, connectionID, cookieValue);
+
                 foreach (Anime a in animeData)
                 {
                     ddl_tipo.Items.Add(a.name);
                 }
-
-                AggiornaGridLista(0);
+                AggiornaGridLista(animeData[0]);
             }
         }
 
-        private List<Anime> GetAnimeData(VVVID vvvID) {
-            return vvvID.GetAnimeData(vvvID.Anime.show_id).data;
-        }
-
-
-        private void Play(Anime anime, int nEpisodio) {
-            var link = vvvID.GetLinks(anime, nEpisodio);
+        private void Play(int nEpisodio, string showId, string seasonId) {
+            string connectionID = Request.Params["connectionID"];
+            string cookieValue = Request.Params["cookieValue"];
+            var link = VVVID.GetLinks(connectionID, cookieValue, nEpisodio, showId, seasonId);
             Response.Write($"<script>window.open('player.html?url={link}')</script>");
         }
 
-        private void AggiornaGridLista(int index)
+        private void AggiornaGridLista(Anime anime)
         {
             DataTable dt = new DataTable();
 
             dt.Columns.Add("id", typeof(string));
             dt.Columns.Add("thumb", typeof(string));
             dt.Columns.Add("title", typeof(string));
+            dt.Columns.Add("epInfo", typeof(string));
 
-            for (int i = 0; i < animeData[index].episodes.Count; i++){
-                dt.Rows.Add(i, animeData[index].episodes[i].thumbnail, animeData[0].episodes[i].title);
+            for (int i = 0; i < anime.episodes.Count; i++){
+                // dt.Rows.Add(i, anime.episodes[i].thumbnail, anime.episodes[i].title);
+                dt.Rows.Add(i, anime.episodes[i].thumbnail, anime.episodes[i].title ,anime.show_id + "-" + anime.episodes[i].season_id);
+
             }
 
             ListGrid.DataSource = dt;
@@ -73,14 +59,20 @@ namespace AnimeStream {
 
         protected void ddl_tipo_TextChanged(object sender, EventArgs e)
         {
-            AggiornaGridLista(ddl_tipo.SelectedIndex);
+            int animeID = int.Parse(Request.QueryString["id"]);
+            string connectionID = Request.Params["connectionID"];
+            string cookieValue = Request.Params["cookieValue"];
+            var animeData = VVVID.GetAnimeData(animeID, connectionID, cookieValue);
+
+            AggiornaGridLista(animeData[ddl_tipo.SelectedIndex]);
         }
 
         protected void ListGrid_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "play")
             {
-                Play(animeData[ddl_tipo.SelectedIndex], int.Parse(Convert.ToString(e.CommandArgument)));
+                string[] epInfo = ListGrid.Rows[0].Cells[2].Text.Split('-'); 
+               Play(int.Parse(Convert.ToString(e.CommandArgument)), epInfo[0], epInfo[1]);
             }
         }
     }

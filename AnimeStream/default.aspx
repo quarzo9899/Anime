@@ -13,11 +13,16 @@
     <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/jquery-3.0.0.js"></script>
     <script type="text/javascript">
-            function Image_click(img) {
-                var id = img.id;
-                var style = "top=200, left=200, width=520, height=600, status=no, menubar=no, resizable=no, toolbar=no, scrollbars=yes";
-                window.open("Anime.aspx?id=" + id, "", style);
-            }
+        function Image_click(img) {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            var id = img.id;
+            var style = "top=200, left=200, width=520, height=600, status=no, menubar=no, resizable=no, toolbar=no, scrollbars=yes";
+            var url = "Anime.aspx?id=" + id + "&connectionID=" + vars["connectionID"] + "&cookieValue=" + vars["cookieValue"];
+            window.open(url, "", style);
+        }
     </script>
     <meta id="vp" name="viewport" content="width=device-width, initial-scale=1"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
