@@ -22,7 +22,7 @@
             <hr style="color:white"/><br />
             <div class="row">
                 <div class="col-4 text-left"><h3>Episodi:</h3></div>
-                <div class="col-8 text-left"><asp:DropDownList ID="ddl_tipo" runat="server" Height="16px" Width="119px" OnTextChanged="ddl_tipo_TextChanged" AutoPostBack="true" CssClass="form-control drop"></asp:DropDownList></div>
+                <div class="col-8 text-left"><asp:DropDownList ID="ddl_tipo" runat="server" Height="16px" Width="119px" OnTextChanged="ddl_tipo_TextChanged" AutoPostBack="true" CssClass="drop"></asp:DropDownList></div>
             </div>
         </div>
         <br />
