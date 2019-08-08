@@ -38,15 +38,12 @@
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:ImageButton ID="ImageButton1" runat="server" CommandArgument='<%# Eval("id") %>' ImageUrl='<%# Eval("thumb") %>' CommandName="play" Height="90px" />
+                            <asp:ImageButton ID="ImageButton1" runat="server" CommandArgument='<%# Eval("id") + "-" + Eval("epInfo")%>' ImageUrl='<%# Eval("thumb") %>' CommandName="play" Height="90px" />
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:BoundField DataField="title" HeaderText="Titolo" >
                     <FooterStyle HorizontalAlign="Left" />
                     <HeaderStyle HorizontalAlign="Left" />
-                    <ItemStyle HorizontalAlign="Left" />
-                    </asp:BoundField>
-                   <asp:BoundField DataField="epInfo" HeaderText="epInfo"  ItemStyle-CssClass="Hide" HeaderStyle-CssClass="Hide" >
                     <ItemStyle HorizontalAlign="Left" />
                     </asp:BoundField>
                 </Columns>

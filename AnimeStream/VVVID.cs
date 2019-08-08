@@ -45,6 +45,7 @@ namespace AnimeStream {
             String urlFirst15 = "https://www.vvvvid.it/vvvvid/ondemand/anime/channel/10003/last?filter=" + c + "&conn_id=" + _connectionId; //Questo link mostra solo i primi 15 anime
             String urlLast = "https://www.vvvvid.it/vvvvid/ondemand/anime/channel/10003?filter=" + c + "&conn_id=" + _connectionId; //Questo link mostra i restanti anime
             string response = WebRequest(urlFirst15, cookieValue);
+
             RootObject animeFirst15 = JsonConvert.DeserializeObject<RootObject>(response);
             response = WebRequest(urlLast, cookieValue);
             RootObject animeLast = JsonConvert.DeserializeObject<RootObject>(response);

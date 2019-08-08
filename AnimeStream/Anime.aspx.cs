@@ -21,6 +21,7 @@ namespace AnimeStream
                 string connectionID = Request.Params["connectionID"];
                 string cookieValue = Request.Params["cookieValue"];
                 var animeData = VVVID.GetAnimeData(animeID, connectionID, cookieValue);
+                
 
                 foreach (Anime a in animeData)
                 {
@@ -71,8 +72,8 @@ namespace AnimeStream
         {
             if (e.CommandName == "play")
             {
-                string[] epInfo = ListGrid.Rows[0].Cells[2].Text.Split('-'); 
-               Play(int.Parse(Convert.ToString(e.CommandArgument)), epInfo[0], epInfo[1]);
+                string[] arguments = Convert.ToString(e.CommandArgument).Split('-'); 
+               Play(int.Parse(arguments[0]), arguments[1], arguments[2]);
             }
         }
     }
