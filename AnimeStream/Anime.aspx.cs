@@ -28,7 +28,7 @@ namespace AnimeStream {
                 if (AnimeStream._default.vvvID == null || AnimeStream._default.vvvID.listAnime == null || Request.QueryString["id"] == null)
                 Response.Redirect("default.aspx");
                 vvvID = AnimeStream._default.vvvID;
-                AnimeStream._default.vvvID = null;
+                //AnimeStream._default.vvvID = null;
 
                 int animeID = int.Parse(Request.QueryString["id"]);
                 vvvID.Anime = vvvID.listAnime[animeID];
