@@ -11,10 +11,18 @@ namespace AnimeStream
                     List<string> info = VVVID.GetConnectionInfo();
                     Response.Redirect($"default.aspx?connectionID={info[0]}&cookieValue={info[1]}");
                 }
+                string connectionID = Request.Params["connectionID"];
+                string cookieValue = Request.Params["cookieValue"];
+                if(!VVVID.TestConnectionInfo(connectionID, cookieValue)) {
+                    List<string> info = VVVID.GetConnectionInfo();
+                    Response.Redirect($"default.aspx?connectionID={info[0]}&cookieValue={info[1]}");
+                }
             }
         }
 
         protected void AnimeIniziale_TextChanged(object sender, EventArgs e) {
+            if (AnimeIniziale.Text == "" || !Char.IsLetter(AnimeIniziale.Text[0]))
+                return;
             char c = char.ToLower(AnimeIniziale.Text[0], CultureInfo.InvariantCulture);
             string connectionID = Request.Params["connectionID"];
             string cookieValue = Request.Params["cookieValue"];

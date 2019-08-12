@@ -8,20 +8,6 @@ using System.Text;
 
 namespace AnimeStream {
     public class VVVID  {
-        private static string WebRequest(string url, String cookieValue) {
-            CookieContainer _cookieContainer = new CookieContainer();
-            if(cookieValue != null)
-                _cookieContainer.Add(new Cookie("JSESSIONID", cookieValue, "/", "www.vvvvid.it"));
-            ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
-            HttpWebRequest webRequest = (HttpWebRequest)System.Net.WebRequest.Create(url);
-            webRequest.Method = "GET";
-            webRequest.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 Firefox/67.0";
-            webRequest.CookieContainer = _cookieContainer;
-            using (Stream s = webRequest.GetResponse().GetResponseStream())
-                using (StreamReader sr = new StreamReader(s))
-                    return sr.ReadToEnd();
-        }
-
         public static List<string> GetConnectionInfo() {
             CookieContainer _cookieContainer = new CookieContainer();
             string response;
@@ -39,6 +25,27 @@ namespace AnimeStream {
             connectionInfo.Add(response.Split(new[] { "\"conn_id\":\"" }, StringSplitOptions.None)[1].Split('\"')[0]);
             connectionInfo.Add(_cookieContainer.GetCookies(new Uri("http://www.vvvvid.it"))[0].Value);
             return connectionInfo;
+        }
+
+        public static Boolean TestConnectionInfo(String _connectionId, String cookieValue) {
+            try {
+                AnimeFilter('a', _connectionId, cookieValue);
+                return true;
+            } catch (Exception) {return false; }
+        }
+
+        private static string WebRequest(string url, String cookieValue) {
+            CookieContainer _cookieContainer = new CookieContainer();
+            if (cookieValue != null)
+                _cookieContainer.Add(new Cookie("JSESSIONID", cookieValue, "/", "www.vvvvid.it"));
+            ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
+            HttpWebRequest webRequest = (HttpWebRequest)System.Net.WebRequest.Create(url);
+            webRequest.Method = "GET";
+            webRequest.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 Firefox/67.0";
+            webRequest.CookieContainer = _cookieContainer;
+            using (Stream s = webRequest.GetResponse().GetResponseStream())
+            using (StreamReader sr = new StreamReader(s))
+                return sr.ReadToEnd();
         }
 
         public static List<Anime> AnimeFilter(char c, String _connectionId, String cookieValue) {

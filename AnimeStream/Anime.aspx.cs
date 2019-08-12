@@ -42,7 +42,8 @@ namespace AnimeStream
             dt.Columns.Add("epInfo", typeof(string));
 
             for (int i = 0; i < anime.episodes.Count; i++)
-                dt.Rows.Add(i, anime.episodes[i].thumbnail, anime.episodes[i].title ,anime.show_id + "-" + anime.episodes[i].season_id);
+                if(anime.episodes[i].playable & anime.episodes[i].vod_mode != 2)
+                    dt.Rows.Add(i, anime.episodes[i].thumbnail, anime.episodes[i].number + " - " + anime.episodes[i].title ,anime.show_id + "-" + anime.episodes[i].season_id);
 
             ListGrid.DataSource = dt;
             ListGrid.DataBind();
