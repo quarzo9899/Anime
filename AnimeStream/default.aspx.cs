@@ -33,7 +33,7 @@ namespace AnimeStream
         private void AggiornaGallery(List<Anime> listaAnime) {
             string innerhtml = "<div class='row'>";
             for (int i = 0; i < listaAnime.Count; i++)
-                innerhtml += $"<div class='col-6 col-sm-4 col-md-3 col-lg-2'><img id='{listaAnime[i].show_id}-{listaAnime[i].title.Replace("'", " ")}' alt = '' src='{listaAnime[i].thumbnail}' class='img-fluid' style='width:300px;margin:10px;' onclick='Image_click(this)'/></div>";
+                innerhtml += $"<div class='col-6 col-sm-4 col-md-3 col-lg-2'><div class='card' style='margin-bottom:10px'><img id='{listaAnime[i].show_id}-{listaAnime[i].title.Replace("'", " ")}' alt = '' src='{listaAnime[i].thumbnail}' class='card-img-top img-fluid' onclick='Image_click(this)'/><div class='card-body'><h5 class='card-title'>{listaAnime[i].title}</h5></div></div></div>";
             innerhtml += "</div>";
             ltl_gallery.Text = innerhtml;
         }

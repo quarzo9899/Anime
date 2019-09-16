@@ -32,6 +32,20 @@
     font-family: Arial;
 }
 
+.card{
+    background-color:black;
+}
+
+.card-body {
+    height:95px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-title{
+    color:white;
+}
+
 @media (max-width: 944px){
     .img-mid{
         display:none;
