@@ -30,7 +30,8 @@ namespace AnimeStream
             string connectionID = Request.Params["connectionID"];
             string cookieValue = Request.Params["cookieValue"];
             var link = VVVID.GetLinks(connectionID, cookieValue, nEpisodio, showId, seasonId);
-            Response.Write($"<script>window.open('player.html?url={link}')</script>");
+            if(link.Contains("youtube")) Response.Write($"<script>window.open('{link}')</script>");
+            else Response.Write($"<script>window.open('player.html?url={link}')</script>");
         }
 
         private void AggiornaGridLista(Anime anime) {
