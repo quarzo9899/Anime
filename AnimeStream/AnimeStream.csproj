@@ -82,6 +82,7 @@
     <Content Include="default.aspx" />
     <Content Include="img\back.jpg" />
     <Content Include="img\logo.png" />
+    <Content Include="img\pageicon.ico" />
     <Content Include="img\patt.jpg" />
     <Content Include="img\qr.png" />
     <Content Include="img\scritta.png" />

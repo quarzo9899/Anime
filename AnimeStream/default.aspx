@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="Content/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="Content/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="Style/stile.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="img/pageicon.ico" />
  
     <script src="Scripts/bootstrap.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
@@ -26,7 +27,7 @@
     </script>
     <meta id="vp" name="viewport" content="width=device-width, initial-scale=1"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>QuaRzo Anime</title>
 </head>
 <body>
     <form id="form1" runat="server">
