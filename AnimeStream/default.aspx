@@ -31,24 +31,40 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="header navbar">
-            <img class="img-fluid" alt="" src="img/qr.png" style="max-height: 130px;" />
-            <img class="img-fluid img-mid" alt="" src="img/scritta.png" style="max-height: 100px;" />
-            <h1 class="title-left">ANIME</h1>
-        </div>
-        <br />
-        <div class="container text-center">
-            <div class="jumbotron search">
-                <div class="row text-center">
-                    <div class="col-md-10"><h1 class="h1-src" style="">Insersici l'iniziale dell'anime che vuoi guardare</h1></div>
-                    <div class="col-md-2"><asp:TextBox ID="AnimeIniziale" runat="server" MaxLength="1" OnTextChanged="AnimeIniziale_TextChanged" AutoPostBack="true" CssClass="form-control box"/></div>
+        <div class="page-container">
+            <div class="content">
+                <div class="header navbar">
+                    <img class="img-fluid" alt="" src="img/qr.png" style="max-height: 130px;" />
+                    <img class="img-fluid img-mid" alt="" src="img/scritta.png" style="max-height: 100px;" />
+                    <h1 class="title-left">ANIME</h1>
+                </div>
+                <br />
+                <div class="container text-center">
+                    <div class="jumbotron search">
+                        <div class="row text-center">
+                            <div class="col-md-10">
+                                <h1 class="h1-src" style="">Insersici l'iniziale dell'anime che vuoi guardare</h1>
+                            </div>
+                            <div class="col-md-2">
+                                <asp:TextBox ID="AnimeIniziale" runat="server" MaxLength="1" OnTextChanged="AnimeIniziale_TextChanged" AutoPostBack="true" CssClass="form-control box" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="container-fluid" runat="server">
+                    <asp:Literal ID="ltl_gallery" runat="server"></asp:Literal>
                 </div>
             </div>
-        </div>
-        <br />
-        <div class="container-fluid" runat="server">
-             <asp:Literal ID="ltl_gallery" runat="server"></asp:Literal>
-        </div>
+            <footer>
+                <hr />
+                <div class="container text-center">
+                    Designed by QuaRzo<br />
+                    Copyright © All rights reserved<br />
+                    <br />
+                </div>
+            </footer>
+        </div>   
     </form>
 </body>
 </html>
