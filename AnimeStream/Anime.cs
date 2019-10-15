@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
-namespace AnimeStream
-{
+namespace AnimeStream {
     public class Episode {
         public int id { get; set; }
         public int season_id { get; set; }
